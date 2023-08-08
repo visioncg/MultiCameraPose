@@ -190,6 +190,7 @@ double GeneralizedPoseSolverGP4Ps::EvaluateModelOnPoint(
   // Transforms into the coordinate system of the camera.
   const Camera& cam = rig_.cameras[camera_indices_[i]];
   Vector3d p_c = cam.R * p_r + cam.t * pose.alpha;
+  //CameraPose& pose don't hava the alpha;
 
   // Check whether point projects behind the camera.
   if (p_c[2] < 0.0) return std::numeric_limits<double>::max();
